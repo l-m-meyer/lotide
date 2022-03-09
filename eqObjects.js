@@ -13,7 +13,11 @@ const eqObjects = (obj1, obj2) => {
     return false;
   }
 
-  
+  for (const key of obj1Keys) {
+    if (!obj2Keys.includes(key)) {
+      return false;
+    }
+  } return true;
 };
 
 // FUNCTION IMPLEMENTATION
@@ -28,7 +32,7 @@ const assertEqual = function(actual, expected) {
 // TEST CODE
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
-eqObjects(assertEqual(ab, ba)); // => true
+console.log(eqObjects(ab, ba)); // => true
 
 const abc = { a: "1", b: "2", c: "3" };
-eqObjects(assertEqual(ab, abc)); // => false
+console.log(eqObjects(ab, abc)); // => false
