@@ -1,10 +1,15 @@
 /*
-*
-*
-*
+* Function takes in an object and a value, scans the object and 
+* returns the first key that contains the given value. If no key is 
+* found, returns undefined.
+* @param {Object} obj
+* @param {String} value
+* @returns {String} key
 */
 const findKeyByValue = (obj, value) => {
-  for (const key in obj) {
+  const keys = Object.keys(obj);
+
+  for (const key of keys) {
     if (obj[key] === value) {
       return key;
     }
@@ -32,3 +37,4 @@ const bestTVShowsByGenre = {
 
 assertEqual(findKeyByValue(bestTVShowsByGenre, "The Wire"), "drama");
 assertEqual(findKeyByValue(bestTVShowsByGenre, "That '70s Show"), undefined);
+assertEqual(findKeyByValue(bestTVShowsByGenre, "The Expanse"), "comedy");
