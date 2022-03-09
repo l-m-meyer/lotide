@@ -7,15 +7,10 @@
 * @result {Array} arr without matching items in itemsToRemove
 */
 const without = (source, itemsToRemove) => {
-  // initialize empty array
-  const arr = [];
-
-  // iterate over source array
-  for (const item of source) {
-    if (!itemsToRemove.includes(item)) {
-      arr.push(item);
-    }
-  } return arr;
+  // filter out itemToRemove and store in a new array
+  const arr = source.filter(item => !itemsToRemove.includes(item));
+  
+  return arr;
 };
 
 /*------------------- TESTS -----------------*/
