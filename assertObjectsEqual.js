@@ -1,15 +1,4 @@
 /*
-*
-*
-*
-*/
-const assertObjectsEqual = (actual, expectation) => {
-  
-};
-
-
-
-/*
 * Function will take in two objects and returns true or false, based on a perfect match.
 * @param {Object}
 * @param {Object}
@@ -19,12 +8,12 @@ const eqObjects = (obj1, obj2) => {
   // get object keys and store as an array
   const obj1Keys = Object.keys(obj1);
   const obj2Keys = Object.keys(obj2);
-
+  
   // check if the object lengths are the same
   if (obj1Keys.length !== obj2Keys.length) {
     return false;
   }
-
+  
   // checks that other object does not include key found in first object
   for (const key of obj1Keys) {
     if (!obj2Keys.includes(key)) {
@@ -64,11 +53,11 @@ const eqArrays = (arr1, arr2) => {
   if (arr1.length !== arr2.length) {
     return false;
   }
-    for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i]) {
-        return false;
-      }
-    } return true;
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  } return true;
 };
 
 // FUNCTION IMPLEMENTATION
@@ -80,19 +69,19 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// TEST CODE
-/** primatives as values */
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba), true); // => true
+/*
+* Test function for Objects
+* @param {Object} actual
+* @param {Object} expected
+* @return {String} console.log() Assertion passed or failed
+*/
+const assertObjectsEqual = (actual, expected) => {
+  const inspect = require('util').inspect;
+  if (eqObjects(actual, expected)) {
+    console.log(`✅✅✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
+  } else {
+    console.log(`🛑🛑🛑 Assertion Failed: ${inspect(actual)} !== ${inspect(expected)}`);
+  }
+};
 
-const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc), false); // => false
-
-/** arrays as values */
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true); // => true
-
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false); // => false
+assertObjectsEqual({ a: '1', b: 2 }, { b: 2, a: '1' });
