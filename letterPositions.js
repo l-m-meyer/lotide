@@ -8,11 +8,16 @@ const letterPositions = sentence => {
 
   for (let i = 0; i < sentence.length; i++) {
     const arr = [];
-    
-    if (!results[sentence[i]]){
+    if (sentence[i] === ' ') {
+      continue;
+    }
+
+    if (results[sentence[i]]){
+      results[sentence[i]].push(i);
+    } else {
+      results[sentence[i]] = arr;
       arr.push(i);
     }
-    results[sentence[i]] = arr;
   }
   console.log(results);
   return results;
@@ -47,3 +52,4 @@ const assertArraysEqual = (arr1, arr2, expected) => {
 };
 
 assertArraysEqual(letterPositions("hello").e, [1], true);
+assertArraysEqual(letterPositions(" hel lo").e, [2], true);
