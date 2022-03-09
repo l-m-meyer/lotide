@@ -6,6 +6,15 @@
 const letterPositions = sentence => {
   const results = {};
 
+  for (let i = 0; i < sentence.length; i++) {
+    const arr = [];
+    
+    if (!results[sentence[i]]){
+      arr.push(i);
+    }
+    results[sentence[i]] = arr;
+  }
+  console.log(results);
   return results;
 };
 
@@ -37,6 +46,4 @@ const assertArraysEqual = (arr1, arr2, expected) => {
   }
 };
 
-assertArraysEqual([1, 2, 3], [1, 2, 3], true); // => should PASS
-assertArraysEqual([1, 2, 3], [1, 2, "3"], false); // => should PASS
-assertArraysEqual([1, 2, 3], [0, 12, -3, 8], false); // => should PASS
+assertArraysEqual(letterPositions("hello").e, [1], true);
