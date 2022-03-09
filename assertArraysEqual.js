@@ -16,14 +16,14 @@ const eqArrays = (arr1, arr2) => {
 };
 
 // TEST FUNCTION FOR ARRAYS
-const assertArraysEqual = (arr1, arr2) => {
-  if (eqArrays(arr1, arr2)) {
+const assertArraysEqual = (arr1, arr2, expected) => {
+  if (eqArrays(arr1, arr2) === expected) {
     console.log(`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
   } else {
     console.log(`🛑🛑🛑 Assertion Failed: ${arr1} !== ${arr2}`);
   }
 };
 
-assertArraysEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
-assertArraysEqual(eqArrays([1, 2, 3], [1, 2, "3"]), false); // => should PASS but fails
-assertArraysEqual(eqArrays([1, 2, 3], [0, 12, -3, 8]), false); // => should PASS
+assertArraysEqual([1, 2, 3], [1, 2, 3], true); // => should PASS
+assertArraysEqual([1, 2, 3], [1, 2, "3"], false); // => should PASS
+assertArraysEqual([1, 2, 3], [0, 12, -3, 8], false); // => should PASS
