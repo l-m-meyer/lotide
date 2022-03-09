@@ -1,17 +1,24 @@
 /*
 * Function returns all the indices in a string where each character is found.
-* @param {String}
-* @return {Object}
+* @param {String} sentence
+* @return {Object} results
 */
 const letterPositions = sentence => {
   const results = {};
 
+  // iterates over the length of the sentence string
   for (let i = 0; i < sentence.length; i++) {
     const arr = [];
+
+    // checks if the character at the index is a space
+    // skips if true
     if (sentence[i] === ' ') {
       continue;
     }
 
+    // checks if letter exists in results object
+    // pushes the index to the existing key in object
+    // else adds key to object then pushes the index to new key in object
     if (results[sentence[i]]){
       results[sentence[i]].push(i);
     } else {
@@ -19,7 +26,6 @@ const letterPositions = sentence => {
       arr.push(i);
     }
   }
-  console.log(results);
   return results;
 };
 
