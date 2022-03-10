@@ -14,15 +14,6 @@ const findKey = (obj, callback) => {
   } return undefined;
 };
 
-findKey({
-  "Blue Hill": { stars: 1 },
-  "Akaleri":   { stars: 3 },
-  "noma":      { stars: 2 },
-  "elBulli":   { stars: 3 },
-  "Ora":       { stars: 2 },
-  "Akelarre":  { stars: 3 }
-}, x => x.stars === 2)
-
 /**--------------------------- TESTS ----------------------------*/
 
 // FUNCTION IMPLEMENTATION
@@ -35,7 +26,29 @@ const assertEqual = function(actual, expected) {
 };
 
 // TEST CODE
-// assertEqual("Lighthouse Labs", "Bootcamp");
-// assertEqual(1, 1);
-// assertEqual(1, 2);
-// assertEqual("Bootcamp", "Bootcamp");
+assertEqual(findKey({
+  "Blue Hill": { stars: 1 },
+  "Akaleri":   { stars: 3 },
+  "noma":      { stars: 2 },
+  "elBulli":   { stars: 3 },
+  "Ora":       { stars: 2 },
+  "Akelarre":  { stars: 3 }
+}, x => x.stars === 2), "noma");
+
+assertEqual(findKey({
+  "Blue Hill": { stars: 1 },
+  "Akaleri":   { stars: 3 },
+  "noma":      { stars: 2 },
+  "elBulli":   { stars: 3 },
+  "Ora":       { stars: 2 },
+  "Akelarre":  { stars: 3 }
+}, x => x.stars === 3), "Akaleri");
+
+assertEqual(findKey({
+  "Blue Hill": { stars: 1 },
+  "Akaleri":   { stars: 3 },
+  "noma":      { stars: 2 },
+  "elBulli":   { stars: 3 },
+  "Ora":       { stars: 2 },
+  "Akelarre":  { stars: 3 }
+}, x => x.stars === 4), undefined);
