@@ -1,3 +1,5 @@
 const assertEqual = require('./assertEqual');
 
-const head = require('./head.js');
+const head = require('./head');
+
+const tail = require('./tail');
