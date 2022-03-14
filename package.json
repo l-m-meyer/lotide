@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@l-m-meyer/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "a mini clone of the lodash library, made for LHL Web Dev bootcamp",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/l-m-meyer/lotide.git"
   },
-  "author": "l-m-meyer",
+  "author": "Lisa Meyer",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/l-m-meyer/lotide/issues"
