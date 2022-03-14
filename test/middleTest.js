@@ -1,6 +1,7 @@
 const assertArraysEqual = require('../assertArraysEqual');
 const middle = require('../middle');
 
+console.log('middle test');
 // TEST CASES
 let words = ["hello", "world", "lighthouse"];
 middle(words); // no need to capture return value for this test case
